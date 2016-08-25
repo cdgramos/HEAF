@@ -14,8 +14,8 @@ int countRecordsInFile(FILE *fp){
     return lines;
 }
 
-//compute average
-double average(double *x, int totRecords){
+//compute mean
+double mean(double *x, int totRecords){
 	int i = 0;
 	double avg = 0.0;
 
