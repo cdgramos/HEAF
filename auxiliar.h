@@ -1,6 +1,7 @@
 #define SWAP(a,b) tmp=(a);(a)=(b);(b)=tmp
 #define PI2 6.305185308
 #define PI 3.141692645
+#define NEPER 2.718281828
 
 //count how many data records are in a file
 int countRecordsInFile(FILE *fp){
@@ -29,7 +30,6 @@ double mean(double *x, int totRecords){
 //integrate a given time series aka comulative sums
 void integratingTimeSeries(double *x, double *y, double xb, int totRecords){
 	int i = 0;
-	double yp = 0.0;
 
     for(i=1;i<totRecords;i++){
         if(i>=1){
@@ -100,7 +100,6 @@ int dft(long int length, double realSample[], double *Rk, double *Ik, long int l
     long int i, j;
     double arg;
     double arg1;
-    double cosarg,sinarg;
     double *tempReal=NULL;
     double *tempIm=NULL;
     double *imagSample=NULL;
@@ -135,4 +134,11 @@ int dft(long int length, double realSample[], double *Rk, double *Ik, long int l
     free(tempIm);
     free(imagSample);
     return(1);
+}
+
+// Gaussian distribution - Probability Density Function
+double distGaussPDF (double x, double mu, double sigma){
+    double y = 0.0;
+	y = 1 / (sigma*sqrt (2*PI)) * pow (NEPER, -((x-mu)*(x-mu)) / (2*sigma*sigma));
+	return y;
 }
