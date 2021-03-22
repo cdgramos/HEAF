@@ -4,7 +4,7 @@
 #include "auxiliar.h"
 
 
-#define minValues 16 //mininum records to compute Hurst Exponent by Autocorrelation Function ! Impirical Value
+#define minValues 16 //mininum records to compute Hurst Exponent by Autocorrelation Function ! Empirical Value
 
 
 int main(){
